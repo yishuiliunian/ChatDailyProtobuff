@@ -17,18 +17,36 @@ message CDCardText {
     string text = 1;
 }
 
+message CDCardLocation {
+    //经度
+    double longitude = 1;
+    //维度
+    double latitude = 2;
+    //位置名称
+    string title = 3;
+    //位置详细信息
+    string label = 4;
+}
+
 enum CDCardInfoType {
+  //文本
   CardInfoText = 0;
+  //图片
   CardInfoImage = 1;
+  //地理位置
   CardInfoLocation = 2;
+  //天气
   CardInfoWhether = 3;
 }
 
 message CDCardInfoItem {
+    //类型
     CDCardInfoType type = 1;
+    //内容数据
     bytes content = 2;
 }
 
 message CDCardInfo {
+    //所有数据
     repeated CDCardInfoItem contents = 1;
 }
