@@ -1,0 +1,34 @@
+syntax = "proto3";
+package rpc;
+
+message CDCardImage {
+    //本地文件路径
+    string file_path = 1;
+    //远端路径
+    string url = 2;
+    //宽度
+    int32 width=3;
+    //高度
+    int32 height =4;
+}
+
+message CDCardText {
+    //内容
+    string text = 1;
+}
+
+enum CDCardInfoType {
+  CardInfoText = 0;
+  CardInfoImage = 1;
+  CardInfoLocation = 2;
+  CardInfoWhether = 3;
+}
+
+message CDCardInfoItem {
+    CDCardInfoType type = 1;
+    bytes content = 2;
+}
+
+message CDCardInfo {
+    repeated CDCardInfoItem contents = 1;
+}
